@@ -9,6 +9,7 @@ class Solution:
                 msum = tmp
             if tmp < 0:
                 tmp = 0
+                
         return msum
         
         
