@@ -8,7 +8,6 @@ class Solution:
 
         s = ""
 
-        # Iterating through the map in reverse order
         for key in sorted(rm.keys(), reverse=True):
             while num >= key:
                 s += rm[key]
