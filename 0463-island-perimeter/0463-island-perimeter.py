@@ -1,21 +1,17 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-        c = len(grid)
-        r = len(grid[0])
-        peri = 0
-        
-        for i in range(c):
-            for j in range(r):
-                if grid[i][j] == 0:
-                    continue
-                peri += 4
-                if i > 0:
-                    peri -= grid[i-1][j]
-                if i < c-1:
-                    peri -= grid[i+1][j]
-                if j > 0:
-                    peri -= grid[i][j-1]
-                if j < r-1:
-                    peri -= grid[i][j+1]
+        p = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:     
+                    p += 4
+                    if i > 0:
+                        p -= grid[i-1][j]
+                    if i < len(grid)-1:
+                        p -= grid[i+1][j]
+                    if j > 0:
+                        p -= grid[i][j-1]
+                    if j < len(grid[0])-1:
+                        p -= grid[i][j+1]
 
-        return peri
+        return p
