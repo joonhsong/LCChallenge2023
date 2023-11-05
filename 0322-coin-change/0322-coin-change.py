@@ -1,11 +1,12 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        a = [amount+1]*(amount+1)
-        a[0] = 0
+        dp = [float(inf)] * (amount + 1)
+        dp[0] = 0
         for i in range(1, amount+1):
-            for c in coins:
-                if c <= i:
-                    a[i] = min(a[i], a[i-c]+1)
-        if a[amount] == amount+1:
+            for j in coins:
+                t = i - j
+                if t >= 0:
+                    dp[i] = min(dp[i], dp[t]+1)
+        if dp[-1] == float(inf):
             return -1
-        return a[amount]
+        return dp[-1]
